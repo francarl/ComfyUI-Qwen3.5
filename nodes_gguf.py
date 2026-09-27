@@ -8,6 +8,7 @@
 import os
 import re
 import shutil
+import shlex
 import subprocess
 import tempfile
 from pathlib import Path
@@ -291,6 +292,7 @@ class Qwen35GGUF:
         cmd.extend(["-p", full_prompt])
 
         print(f"[Qwen3.5 GGUF] Running inference ({model_path.name})...")
+        print(shlex.join(cmd))
         result = subprocess.run(
             cmd,
             capture_output=True,
