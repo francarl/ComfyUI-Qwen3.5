@@ -277,6 +277,8 @@ class Qwen35GGUF:
 
         if image_path:
             cmd.extend(["--image", image_path])
+        else:
+            cmd.extend(["--single-turn"])
 
         # Control thinking mode via Qwen3.5's /think and /no_think prompt
         # tokens. This works with all llama.cpp builds (unlike the
